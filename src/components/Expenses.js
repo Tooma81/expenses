@@ -4,9 +4,6 @@ import './Expenses.css';
 
 const Expenses = (props) => {
 
-    console.log(props)
-    console.log(props.expenses)
-
     return(
         <Card className='expenses'>
             <ExpenseItem data={props.expenses[0]}/>
