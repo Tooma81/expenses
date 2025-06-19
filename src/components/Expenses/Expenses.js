@@ -5,7 +5,7 @@ import './Expenses.css';
 import { useState } from 'react';
 
 const Expenses = (props) => {
-    const [filterYear, setFilterYear] = useState('2024')
+    const [filterYear, setFilterYear] = useState('2025')
 
     const filterChangeHandler = (year) => {
         setFilterYear(year)
@@ -18,10 +18,19 @@ const Expenses = (props) => {
 
     return(
         <Card className='expenses'>
-            <ExpensesFilter selectedYear={filterYear} onChangeFilter={filterChangeHandler} />
-            {filteredExpenses.map((expense) => (
-                <ExpenseItem key={expense.id} data={expense}/>
-            ))}
+            <ExpensesFilter selectedYear={filterYear} 
+            onChangeFilter={filterChangeHandler} />
+            {
+                filteredExpenses.length === 0 && 
+                <p className='not-found-message'>
+                    No Expenses Found!
+                </p>
+            }
+            {
+                filteredExpenses.map((expense) => (
+                    <ExpenseItem key={expense.id} data={expense}/>
+                ))
+            }
         </Card>
     )
 }
