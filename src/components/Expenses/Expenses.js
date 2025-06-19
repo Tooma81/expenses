@@ -5,7 +5,7 @@ import './Expenses.css';
 import { useState } from 'react';
 
 const Expenses = (props) => {
-    const [filterYear, setFilterYear] = useState('2025')
+    const [filterYear, setFilterYear] = useState('2024')
 
     const filterChangeHandler = (year) => {
         setFilterYear(year)
