@@ -4,10 +4,6 @@ import { useState } from 'react';
 const ExpenseForm = (props) => {
     const [formOpen, setFormOpen] = useState(false);
 
-    const toggleForm = () => {
-        setFormOpen(prev => !prev);
-    };
-
     const [enteredTitle, setEnteredTitle] = useState('')
     const [enteredPrice, setEnteredPrice] = useState('')
     const [enteredDate, setEnteredDate] = useState('')
@@ -35,6 +31,7 @@ const ExpenseForm = (props) => {
         setEnteredTitle('')
         setEnteredPrice('')
         setEnteredDate('')
+        setFormOpen(prev => !prev)
     }
 
     const clearForm = () => {
@@ -68,14 +65,14 @@ const ExpenseForm = (props) => {
                         <div className="new-expense__control">
                             <label>Date</label>
                             <input 
-                                type="date" min="2024-11-12" max="2026-01-31" 
+                                type="date" min="2023-01-01" max="2026-01-31" 
                                 onChange={dateChangeHandler}
                                 value={enteredDate}
                             />
                         </div>  
                     </div>
                     <div className="new-expense__actions">
-                        <button type="submit" onClick={toggleForm}>
+                        <button type="submit">
                             Add Expense
                         </button>
                         <button type="reset" onClick={clearForm}>
@@ -88,7 +85,7 @@ const ExpenseForm = (props) => {
             {
                 !formOpen && (
                     <div>
-                        <button type="submit" onClick={toggleForm}>
+                        <button type="submit">
                             Add New Expense
                         </button>
                     </div>
